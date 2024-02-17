@@ -4,7 +4,6 @@ import {
   View,
   Text,
   StyleSheet,
-  ScrollView,
   FlatList
 } from 'react-native';
 import { Skill } from '../Components/Skill';
@@ -16,6 +15,9 @@ export const Home = () => {
   const [skills, setSkills] = useState([]);
 
   function setSkillsHandle() {
+
+    if (newSkill === '' || skills.includes(newSkill)) return;
+
     setSkills(oldState => [...oldState, newSkill])
   }
 

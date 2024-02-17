@@ -1,8 +1,12 @@
 import { Home } from "./Pages/Home";
+import {StatusBar} from "react-native";
 
 const App = () => {
   return (
-    <Home />
+      <>
+        <StatusBar barStyle="light-content" backgroundColor="#121014" />
+        <Home />
+      </>
   );
 }
 
