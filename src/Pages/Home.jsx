@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import {
   View,
   Text,
   StyleSheet,
-  ScrollView
+  ScrollView,
+  FlatList
 } from 'react-native';
 import { Skill } from '../Components/Skill';
 import {SkillForm} from "../Components/SkillForm";
@@ -29,14 +30,12 @@ export const Home = () => {
 
         <View style={styles.skillsContainer}>
             <Text style={[styles.text, { fontWeight: 'bold', fontSize: 18, marginBottom: 10 }]}>My Skills</Text>
-            <ScrollView style={{ padding: 10 }}>
-              {
-                skills.map(skill => (
-                  <Skill skill={skill} key={skill} />
-                ))
-              }
-            </ScrollView >
-
+            <FlatList
+                nestedScrollEnabled={true}
+                data={skills}
+                renderItem={({item}) => <Skill skill={item} />}
+                keyExtractor={item => item}
+            />
         </View>
     </View>
   );
@@ -52,6 +51,7 @@ const styles = StyleSheet.create({
   },
   skillsContainer: {
     marginTop: 30,
+    flex: 1,
   },
   textContainer: {
     justifyContent: 'center',
