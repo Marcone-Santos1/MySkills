@@ -1,4 +1,4 @@
-import { Home } from "./Pages/Home";
+import { Home } from "./Pages/Home.tsx";
 import {StatusBar} from "react-native";
 
 const App = () => {
